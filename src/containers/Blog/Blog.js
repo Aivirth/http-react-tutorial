@@ -4,7 +4,7 @@ import "./Blog.css";
 //import axios from "axios";
 import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, NavLink as Link } from "react-router-dom";
 
 class Blog extends Component {
   render() {
@@ -14,7 +14,9 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/" exact activeClassName="active">
+                  Home
+                </Link>
               </li>
               <li>
                 <Link
