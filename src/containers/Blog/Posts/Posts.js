@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./Posts.css";
 import axios from "../../../axios";
 import Post from "../../../components/Post/Post";
-//import { Link } from "react-router-dom";
+import FullPost from "../FullPost/FullPost";
+import { Route } from "react-router-dom";
 
 export default class Posts extends Component {
   state = {
@@ -15,7 +16,7 @@ export default class Posts extends Component {
     // });
 
     this.props.history.push({
-      pathname: `/${id}`
+      pathname: `/posts/${id}`
     });
   };
 
@@ -60,6 +61,15 @@ export default class Posts extends Component {
         );
       });
     }
-    return <section className="Posts">{posts}</section>;
+    return (
+      <div>
+        <Route
+          path={this.props.match.url + "/:id"}
+          exact
+          component={FullPost}
+        />
+        <section className="Posts">{posts}</section>
+      </div>
+    );
   }
 }

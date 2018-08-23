@@ -5,8 +5,6 @@ import "./Blog.css";
 import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
 import { Route, Switch, NavLink as Link } from "react-router-dom";
-import FullPost from "./FullPost/FullPost";
-
 class Blog extends Component {
   render() {
     return (
@@ -15,7 +13,7 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <Link to="/" exact activeClassName="active">
+                <Link to="/posts" exact activeClassName="active">
                   Home
                 </Link>
               </li>
@@ -35,9 +33,8 @@ class Blog extends Component {
         </header>
         {/* <Route path="/" exact render={() => <h1>home</h1>} /> */}
         <Switch>
-          <Route path="/" exact component={Posts} />
           <Route path="/new-post" component={NewPost} />
-          <Route path="/:id" exact component={FullPost} />
+          <Route path="/posts" component={Posts} />
         </Switch>
       </div>
     );
