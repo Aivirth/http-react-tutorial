@@ -25,9 +25,10 @@ class NewPost extends Component {
       .post("/posts", data)
       .then(res => {
         console.log(res);
-        this.setState({
-          submitted: true
-        });
+        // this.setState({
+        //   submitted: true
+        // });
+        this.props.history.push("/posts");
       })
       .catch(err => console.log(err));
   };
@@ -35,7 +36,7 @@ class NewPost extends Component {
   render() {
     return (
       <div className="NewPost">
-        {this.state.submitted ? <Redirect to="/posts" /> : null}
+        {/* {this.state.submitted ? <Redirect to="/posts" /> : null} */}
 
         <h1>Add a Post</h1>
         <label>Title</label>
